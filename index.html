@@ -962,7 +962,7 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     
     <script>
-        // Vue App Initialization
+       // Vue App Initialization
         const { createApp } = Vue;
 
         createApp({
@@ -972,7 +972,62 @@
                 };
             },
             mounted() {
-                // ... (código anterior permanece) ...
+                // Initialize GSAP animations
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Animate sections on scroll
+                gsap.utils.toArray("section").forEach((section) => {
+                    gsap.from(section, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 85%",
+                        },
+                    });
+                });
+
+                // Animate floating elements
+                gsap.utils.toArray(".floating-element").forEach((el) => {
+                    gsap.from(el, {
+                        opacity: 0,
+                        y: 30,
+                        duration: 0.8,
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 90%",
+                        },
+                    });
+                });
+
+                // Initialize Swiper
+                const swiper = new Swiper('.swiper', {
+                    loop: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                        rotate: 20,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                });
             },
             methods: {
                 launchConfetti() {
