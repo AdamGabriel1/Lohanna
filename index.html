@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feliz Aniversário Lohanna!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
     <!-- Framework & UI Tools -->
     <script src="https://unpkg.com/vue@3.2.37/dist/vue.global.prod.js"></script>
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
@@ -593,19 +594,6 @@
             margin-right: 12px;
             color: var(--accent-color);
         }
-
-        /* Assinatura SVG */
-        .signature-path {
-            stroke-dasharray: 200;
-            stroke-dashoffset: 200;
-            animation: drawSignature 2s ease-in-out forwards;
-        }
-        
-        @keyframes drawSignature {
-            to {
-                stroke-dashoffset: 0;
-            }
-        }
         
         /* Estilos para o carrossel de vídeos */
         .video-swiper {
@@ -1138,16 +1126,7 @@
                 <div class="message-signature">
                     <p class="text-xl font-bold">
                         Com todo meu carinho,<br />
-                        <span class="title-font text-pink-600 text-2xl" 
-                              style="display: inline-block; width: 150px;">
-                            <svg width="150" height="60" viewBox="0 0 200 80">
-                                <path d="M10,60 C30,30 70,10 100,30 C130,50 170,70 190,60" 
-                                      fill="none" 
-                                      stroke="#ff4d8d" 
-                                      stroke-width="3"
-                                      class="signature-path" />
-                            </svg>
-                        </span>
+                        <span class="title-font text-pink-600 text-2xl">Adam</span>
                     </p>
                 </div>
             </div>
