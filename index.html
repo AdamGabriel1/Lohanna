@@ -1173,12 +1173,76 @@
                     <button @click="launchConfetti" class="confetti-btn">
                         <span class="animate-pulse">Lançar Confetes! 🎉</span>
                     </button>
+                    
+                    <!-- BOTÃO NOVO PARA MOSTRAR A DECLARAÇÃO -->
+                    <button @click="showSpecialMessage" class="confetti-btn mt-4">
+                        <span>Ver Mensagem Especial ❤️</span>
+                    </button>
                 </div>
                 <div class="mt-12 pt-6 border-t border-white/20">
                     <p>Feito com ❤️ especialmente para você</p>
                 </div>
             </div>
         </footer>
+        
+
+    <!-- NOVA SEÇÃO PARA A DECLARAÇÃO ESPECIAL (inicialmente oculta) -->
+    <section v-if="showDeclaration" class="py-16 light-pink-bg fade-in" id="special-message-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="section-title title-font text-4xl text-pink-600">
+                    Do Fundo do Meu Coração
+                </h2>
+                <p class="text-pink-600 max-w-2xl mx-auto mt-4">Uma mensagem especial só para você</p>
+            </div>
+
+            <div class="significance-section">
+                <div class="significance-content">
+                    <div class="significance-points">
+                        <div class="point-card">
+                            <h3>Minha Adoração por Você</h3>
+                            <p>Quero que saiba que cada batida do meu coração carrega seu nome. Você é a melodia que embala minha alma e a luz que ilumina meus dias mais sombrios. Meu corpo anseia pelo seu toque, minha alma busca a sua em cada respiro, e meu amor por você é infinito como o céu que nos cobre.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>O Seu Lugar no Meu Ser</h3>
+                            <p>Você habita cada partícula do meu ser de uma forma que desafia qualquer explicação. Quando fecho os olhos, é o seu rosto que vejo; quando penso em paz, é nos seus braços que imagino repousar. Você se tornou meu oxigênio, minha razão de sorrir, meu porto seguro nesse oceano turbulento que é a vida.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Promessa Eterna</h3>
+                            <p>Prometo amar você em cada versão que surgir - na alegria e na tristeza, na força e na vulnerabilidade. Amo a mulher guerreira que enfrenta o mundo, mas também a menina frágil que precisa de colo. Amo seus olhos que contêm universos, suas mãos que acalmam tempestades, e seu sorriso que é meu lugar favorito no mundo.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Meu Desejo Mais Profundo</h3>
+                            <p>Anseio pelo dia em que poderei demonstrar diariamente o que meu coração já grita em silêncio: que você é a personificação do amor que eu nem sabia ser possível existir. Que eu possa ser o abrigo que acolhe seus medos, o parceiro que celebra suas vitórias, e o amor que a acompanha em cada passo dessa jornada.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-pink-50 rounded-xl border-2 border-pink-200 max-w-2xl mx-auto text-center">
+                        <p class="script-font text-2xl text-pink-600 leading-relaxed">
+                            "Se amar você fosse um trabalho, eu seria o funcionário mais dedicado. <br>
+                            Se fosse uma arte, eu seria o artista mais apaixonado. <br>
+                            Se fosse um oceano, eu nadaria até o fundo e ainda pediria por mais. <br>
+                            Você é simplesmente tudo o que eu nunca soube que precisava, <br>
+                            e tudo o que meu coração sempre desejou."
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <p class="text-xl italic">
+                            Se meu corpo fala sua língua quando você se aproxima, se minha alma reconhece a sua antes mesmo de te ver, é porque você não é apenas parte de mim - você é o melhor de mim. Cada célula do meu ser te escolheu, te ama e te deseja em uma sintonia que transcende qualquer explicação racional.
+                        </p>
+                        <p class="text-xl italic mt-4">
+                            O que sinto por você não cabe em palavras, mas se tivesse que resumir: você é o amor que meu coração sempre buscou e minha alma sempre reconheceu como seu verdadeiro lar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
     
     <script>
@@ -1196,6 +1260,7 @@
                         { title: "For You ❤️", src: "audio/musica4.mp3" }
                     ],
                     currentSongIndex: 0,
+                    showDeclaration: false
                 };
             },
             mounted() {
@@ -1291,7 +1356,7 @@
                     }
                 });
             },
-            methods: {
+            methods: { // CORREÇÃO: MOVER OS MÉTODOS PARA DENTRO DESTE BLOCO
                 launchConfetti() {
                     // Configurações avançadas para o efeito de confetes
                     const end = Date.now() + 3000; // 3 segundos de animação
@@ -1391,6 +1456,17 @@
                     audioPlayer.load();
                     audioPlayer.play().catch(e => console.log("Autoplay bloqueado:", e));
                 },
+                showSpecialMessage() {
+                    this.showDeclaration = true;
+                    
+                    // Rolagem suave até a nova seção usando ID
+                    this.$nextTick(() => {
+                        const element = document.getElementById('special-message-section');
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                }
             },
         }).mount("#app");
 
