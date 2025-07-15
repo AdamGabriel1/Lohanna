@@ -1170,11 +1170,12 @@
                     <button @click="launchConfetti" class="confetti-btn">
                         <span class="animate-pulse">Lançar Confetes! 🎉</span>
                     </button>
-                    
-                    <!-- BOTÃO NOVO PARA MOSTRAR A DECLARAÇÃO -->
+                    <!-- COMENTE ESTE BOTÃO ABAIXO
+                    < BOTÃO NOVO PARA MOSTRAR A DECLARAÇÃO
                     <button @click="showSpecialMessage" class="confetti-btn mt-4">
                         <span>Ver Mensagem Especial ❤️</span>
                     </button>
+                    -->
                 </div>
                 <div class="mt-12 pt-6 border-t border-white/20">
                     <p>Feito com ❤️ especialmente para você</p>
@@ -1253,8 +1254,9 @@
                     playlist: [
                         { title: "Linda Louca e Mimada", src: "audio/musica1.mp3" },
                         { title: "O Vagabundo e a Dama", src: "audio/musica2.mp3" },
-                        { title: "MTG Na Imaginação", src: "audio/musica3.mp3" },
-                        { title: "For You ❤️", src: "audio/musica4.mp3" }
+                        { title: "MTG Na Imaginação", src: "audio/musica3.mp3" }
+                        // REMOVA ESTA LINHA ↓
+                        // { title: "For You ❤️", src: "audio/musica4.mp3" }
                     ],
                     currentSongIndex: 0,
                     showDeclaration: false
@@ -1293,6 +1295,7 @@
                 // Initialize Swiper for images
                 const swiper = new Swiper('.swiper', {
                     loop: true,
+                    autoplay: false,
                     pagination: {
                         el: '.swiper-pagination',
                         clickable: true,
