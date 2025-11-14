@@ -1,0 +1,1552 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Aniversário Lohanna!</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>❤️</text></svg>">
+    <!-- Framework & UI Tools -->
+    <script src="https://unpkg.com/vue@3.2.37/dist/vue.global.prod.js"></script>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+    <!-- Swiper para o carrossel de fotos -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff7aa2;
+            --secondary-color: #ffecf1;
+            --accent-color: #ff4d8d;
+            --dark-pink: #d14d82;
+            --light-pink: #ffb6c1;
+            --gold: #ffd700;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, var(--secondary-color), #ffffff);
+            color: #555;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .title-font {
+            font-family: "Pacifico", cursive;
+        }
+
+        .script-font {
+            font-family: "Dancing Script", cursive;
+        }
+
+        .elegant-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .pink-bg {
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+
+        .light-pink-bg {
+            background-color: var(--secondary-color);
+        }
+
+        .soft-shadow {
+            box-shadow: 0 4px 20px rgba(255, 122, 162, 0.25);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .heart-beat {
+            animation: heartBeat 1.5s ease infinite;
+        }
+
+        @keyframes heartBeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .section-divider {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(255, 122, 162, 0), rgba(255, 122, 162, 0.75), rgba(255, 122, 162, 0));
+            margin: 40px auto;
+            width: 80%;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 12px;
+            padding-bottom: 40px;
+            transform: rotate(-2deg);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            max-width: 350px;
+            margin: 0 auto 30px;
+        }
+
+        .polaroid:after {
+            content: "";
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: repeating-linear-gradient(90deg, transparent, transparent 10px, #ddd 10px, #ddd 20px);
+        }
+
+        .polaroid img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid #f0f0f0;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .message-box {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .message-box:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 8px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+
+        .message-signature {
+            text-align: right;
+            margin-top: 30px;
+            padding-top: 15px;
+            border-top: 1px dashed var(--light-pink);
+        }
+
+        /* Floating elements */
+        .floating-heart {
+            position: absolute;
+            color: var(--accent-color);
+            font-size: 24px;
+            opacity: 0.7;
+            z-index: -1;
+            animation: floatHeart 15s linear infinite;
+        }
+
+        @keyframes floatHeart {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+            }
+            90% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Balloons */
+        .balloon {
+            position: absolute;
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .balloon:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            width: 2px;
+            height: 30px;
+            background: rgba(255, 255, 255, 0.5);
+            transform: translateX(-50%);
+        }
+
+        /* Intro animation */
+        .intro-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .intro-title {
+            font-family: "Pacifico", cursive;
+            font-size: 4rem;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .intro-subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.5rem;
+            max-width: 600px;
+            text-align: center;
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .enter-button {
+            background: white;
+            color: var(--accent-color);
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .enter-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Floating animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+        }
+
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* Page animations */
+        .fade-in {
+            animation: fadeIn 1s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 40px;
+        }
+
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Footer */
+        footer {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        /* Button */
+        .confetti-btn {
+            background: white;
+            color: var(--accent-color);
+            border: none;
+            padding: 16px 45px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .confetti-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .confetti-btn:active {
+            transform: translateY(0);
+        }
+
+        .confetti-btn:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+        }
+
+        .confetti-btn:hover:before {
+            transform: translateX(100%);
+        }
+
+        /* Swiper Carousel */
+        .swiper {
+            width: 100%;
+            height: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .swiper-pagination-bullet {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(255, 255, 255, 0.5);
+            opacity: 1;
+        }
+
+        .swiper-pagination-bullet-active {
+            background-color: var(--accent-color);
+        }
+
+        .swiper-button-prev, .swiper-button-next {
+            color: var(--accent-color);
+            background: rgba(255, 255, 255, 0.8);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            backdrop-filter: blur(5px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .swiper-button-prev:after, .swiper-button-next:after {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Significance Section */
+        .significance-section {
+            background: linear-gradient(135deg, rgba(255, 122, 162, 0.1), rgba(255, 236, 241, 0.3));
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .significance-section:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+        }
+
+        .significance-content {
+            position: relative;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        .heart-icon {
+            position: absolute;
+            font-size: 10rem;
+            color: rgba(255, 122, 162, 0.05);
+            z-index: 1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .significance-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .point-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .point-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .point-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--accent-color);
+        }
+
+        .point-card h3 {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .point-card h3:before {
+            content: "❤";
+            position: absolute;
+            left: -5px;
+        }
+        
+        /* Poetry Section */
+        .poetry-section {
+            background: linear-gradient(135deg, rgba(255, 122, 162, 0.05), rgba(255, 236, 241, 0.15));
+            border-radius: 20px;
+            padding: 50px 40px;
+            position: relative;
+            overflow: hidden;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .poetry-content {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            text-align: center;
+            color: #555;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .poetry-line {
+            margin-bottom: 1.2rem;
+            display: block;
+            position: relative;
+            padding: 0 20px;
+        }
+        
+        .poetry-signature {
+            text-align: right;
+            margin-top: 40px;
+            font-style: italic;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        
+        .poetry-decoration {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 122, 162, 0.1);
+            z-index: 1;
+        }
+        
+        .decoration-left {
+            top: 20px;
+            left: 20px;
+        }
+        
+        .decoration-right {
+            bottom: 20px;
+            right: 20px;
+            transform: rotate(180deg);
+        }
+        
+        /* Audio Player */
+        .music-player {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .playlist {
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 182, 193, 0.3);
+        }
+        
+        .playlist-item {
+            padding: 12px 20px;
+            border-bottom: 1px solid rgba(255, 182, 193, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+        
+        .playlist-item:hover {
+            background: rgba(255, 236, 241, 0.5);
+        }
+        
+        .playlist-item.active {
+            background: rgba(255, 122, 162, 0.1);
+            font-weight: bold;
+            color: var(--accent-color);
+        }
+        
+        .playlist-item i {
+            margin-right: 12px;
+            color: var(--accent-color);
+        }
+        
+        /* Estilos para o carrossel de vídeos */
+        .video-swiper {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .video-swiper .swiper-slide {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #000;
+        }
+
+        .video-swiper video {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+
+        .video-swiper .swiper-pagination {
+            bottom: 10px;
+        }
+
+        .video-swiper .swiper-button-prev,
+        .video-swiper .swiper-button-next {
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            width: 40px;
+            height: 40px;
+        }
+
+        .video-swiper .swiper-button-prev:after,
+        .video-swiper .swiper-button-next:after {
+            font-size: 1.2rem;
+        }
+        
+        .heart-rain {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2001;
+        }
+    </style>
+</head>
+<body>
+    <!-- Intro Overlay -->
+    <div class="intro-overlay" id="intro">
+        <h1 class="intro-title">Feliz Aniversário!</h1>
+        <p class="intro-subtitle">
+            Uma celebração especial para uma amiga extraordinária
+        </p>
+        <button class="enter-button" id="enterBtn">Ver Surpresa</button>
+
+        <!-- Floating hearts -->
+        <i class="fas fa-heart floating-heart" style="top: 20%; left: 15%; animation-delay: 0s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 40%; left: 85%; animation-delay: 1s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 70%; left: 25%; animation-delay: 2s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 30%; left: 65%; animation-delay: 3s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 10%; left: 35%; animation-delay: 0.5s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 60%; left: 50%; animation-delay: 1.5s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 25%; left: 75%; animation-delay: 2.5s"></i>
+        <i class="fas fa-heart floating-heart" style="top: 80%; left: 40%; animation-delay: 3.5s"></i>
+    </div>
+
+    <div class="flex flex-col min-h-screen" id="app">
+        <!-- Cabeçalho com balões -->
+        <header class="relative overflow-hidden py-16 pink-bg">
+            <div class="container mx-auto px-4 text-center relative z-10">
+                <div class="heart-beat inline-block mb-6">
+                    <img
+                        src="img/1.jpeg"
+                        alt="Foto da aniversariante sorrindo"
+                        class="rounded-full border-6 border-white w-48 h-48 object-cover mx-auto shadow-xl"
+                    />
+                </div>
+                <h1 class="title-font text-5xl md:text-6xl text-white mb-4">
+                    Feliz Aniversário,
+                    <span class="script-font">Lohanna</span>!
+                </h1>
+                <span class="font-bold text-pink-600 text-xl md:text-2xl max-w-2xl mx-auto [text-shadow:_1px_2px_1px_rgb(255_255_255_/_100%)]">
+                    Hoje é o seu dia especial, e quero celebrar você com
+                    todo carinho que merece!
+                </span>
+
+                <!-- Floating decorations -->
+                <div class="balloon floating w-16 h-20 bg-pink-300" style="top: 10%; left: 10%; animation-delay: 0.2s"></div>
+                <div class="balloon floating w-14 h-18 bg-red-200" style="top: 5%; right: 15%; animation-delay: 0.7s"></div>
+                <div class="balloon floating w-12 h-16 bg-purple-200" style="top: 15%; right: 5%; animation-delay: 1.2s"></div>
+                <div class="balloon floating w-10 h-14 bg-yellow-200" style="top: 20%; left: 5%; animation-delay: 1.7s"></div>
+                <div class="balloon floating w-14 h-18 bg-blue-200" style="top: 25%; left: 25%; animation-delay: 0.4s"></div>
+                <div class="balloon floating w-16 h-20 bg-green-200" style="top: 10%; left: 50%; animation-delay: 0.9s"></div>
+                <div class="balloon floating w-12 h-16 bg-orange-200" style="top: 35%; right: 25%; animation-delay: 1.4s"></div>
+                <div class="balloon floating w-10 h-14 bg-teal-200" style="top: 45%; left: 20%; animation-delay: 1.9s"></div>
+            </div>
+
+            <!-- Wave divider -->
+            <div class="absolute bottom-0 left-0 right-0">
+                <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                    <path
+                        d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z"
+                        opacity=".25"
+                        class="fill-current text-white"
+                    ></path>
+                    <path
+                        d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z"
+                        opacity=".5"
+                        class="fill-current text-white"
+                    ></path>
+                    <path
+                        d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z"
+                        class="fill-current text-white"
+                    ></path>
+                </svg>
+            </div>
+        </header>
+
+        <!-- Conteúdo principal -->
+        <main class="flex-grow light-pink-bg py-12">
+            <div class="container mx-auto px-4">
+                <!-- Seção 1: Nossa História -->
+                <section class="mb-20 fade-in">
+                    <div class="text-center mb-10">
+                        <h2 class="section-title title-font text-4xl text-pink-600">
+                            Nossa Jornada
+                        </h2>
+                    </div>
+
+                    <div class="flex flex-col md:flex-row items-center gap-10 max-w-5xl mx-auto">
+                        <div class="w-full md:w-2/5">
+                            <div class="polaroid floating-element">
+                                <img
+                                    src="img/2.jpeg"
+                                    alt="Foto de quando vocês se conheceram"
+                                />
+                                <div class="text-center mt-3 text-gray-600 italic">
+                                    Você ❤️
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="w-full md:w-3/5">
+                            <div class="bg-white rounded-2xl p-8 soft-shadow">
+                                <p class="text-lg mb-5 leading-relaxed">
+                                    Lembro como se fosse hoje quando nos conhecemos
+                                    <span class="font-bold text-pink-600">no Santina</span>. Você sempre estava
+                                    <span class="font-bold text-pink-600">com aquele sorriso contagiante</span>, e o seu jeito meigo, inocente e engraçado.
+                                </p>
+                                <p class="text-lg mb-5 leading-relaxed">
+                                    Lembro também do dia no ônibus que eu pedi o seu celular, esse dia vai ser difícil de esquecer. Na época eu tinha mais atitude do que agora 😂😂
+                                </p>
+                                <p class="text-lg mb-5 leading-relaxed">
+                                    Desde então, compartilhamos tantos momentos incríveis! Desde
+                                    <span class="font-bold text-pink-600">momentos marcantes que eu guardo com muito carinho</span> até
+                                    <span class="font-bold text-pink-600">algumas brigas</span>, cada lembrança com você é um tesouro.
+                                </p>
+                                <p class="text-lg leading-relaxed">
+                                    Mesmo com os nossos problemas, nossa conexão só ficou mais forte. Você é aquela amiga rara que a vida me presenteou, e sou grato todos os dias por ter você na minha vida.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="section-divider" />
+
+                <!-- Seção 2: Qualidades -->
+                <section class="mb-20 fade-in">
+                    <div class="text-center mb-10">
+                        <h2 class="section-title title-font text-4xl text-pink-600">
+                            O Que Te Faz Incrível
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                        <!-- Qualidade 1 -->
+                        <div class="bg-white rounded-2xl p-7 soft-shadow transform hover:scale-105 transition-transform duration-300">
+                            <div class="text-pink-500 text-5xl mb-5 text-center">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3 class="font-bold text-2xl mb-3 text-pink-600 text-center">
+                                Seu Coração Generoso
+                            </h3>
+                            <p class="text-center">
+                                Sua capacidade de se doar pelos outros é impressionante. Você sempre encontra tempo para ajudar quem precisa, mesmo quando está ocupada.
+                            </p>
+                        </div>
+
+                        <!-- Qualidade 2 -->
+                        <div class="bg-white rounded-2xl p-7 soft-shadow transform hover:scale-105 transition-transform duration-300">
+                            <div class="text-pink-500 text-5xl mb-5 text-center">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h3 class="font-bold text-2xl mb-3 text-pink-600 text-center">
+                                Sua Força Interior
+                            </h3>
+                            <p class="text-center">
+                                Você enfrenta desafios com uma coragem que inspira. Mesmo nos momentos difíceis, você encontra força para seguir em frente.
+                            </p>
+                        </div>
+
+                        <!-- Qualidade 3 -->
+                        <div class="bg-white rounded-2xl p-7 soft-shadow transform hover:scale-105 transition-transform duration-300">
+                            <div class="text-pink-500 text-5xl mb-5 text-center">
+                                <i class="fas fa-laugh-beam"></i>
+                            </div>
+                            <h3 class="font-bold text-2xl mb-3 text-pink-600 text-center">
+                                Seu Senso de Humor
+                            </h3>
+                            <p class="text-center">
+                                Sua risada contagiante e piadas nos momentos certos tornam tudo mais leve. Você tem o dom de alegrar qualquer ambiente!
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="section-divider" />
+
+                <!-- Seção 3: Galeria de Fotos com Swiper -->
+                <section class="mb-20 fade-in" id="gallery">
+                    <div class="text-center mb-10">
+                        <h2 class="section-title title-font text-4xl text-pink-600">
+                            Um Pouco da Sua Beleza
+                        </h2>
+                        <p class="text-pink-600 max-w-2xl mx-auto mt-4">Deslize para ver mais fotos de você</p>
+                    </div>
+
+                    <div class="swiper max-w-4xl mx-auto">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <img src="img/3.jpeg"/>
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/4.jpeg"/>
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/5.jpg"/>
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/1.jpeg"/>
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/2.jpeg"/>
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <img src="img/6.jpeg"/>
+                                <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-4">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+                    </div>
+                </section>
+
+                <hr class="section-divider" />
+
+                <!-- Seção 4: O que você representa para mim -->
+                <section class="mb-20 fade-in">
+                    <div class="text-center mb-10">
+                        <h2 class="section-title title-font text-4xl text-pink-600">
+                            O Que Você Representa Para Mim
+                        </h2>
+                        <p class="text-pink-600 max-w-2xl mx-auto mt-4">Um tributo à nossa amizade especial</p>
+                    </div>
+
+                    <div class="significance-section">
+                        <i class="fas fa-heart heart-icon"></i>
+                        <div class="significance-content">
+                            <p class="text-xl text-center mb-8">
+                                Lohanna, você é muito mais do que uma amiga para mim. Você é...
+                            </p>
+                            
+                            <div class="significance-points">
+                                <div class="point-card">
+                                    <h3>Minha Inspiração</h3>
+                                    <p>Sua força e determinação me motivam a ser uma pessoa melhor todos os dias. A forma como você enfrenta os desafios da vida com coragem é verdadeiramente admirável e me ensina a nunca desistir.</p>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h3>Meu Porto Seguro</h3>
+                                    <p>Nos momentos difíceis, sei que posso contar com você. Sua presença acalma e conforta, trazendo luz até nos dias mais cinzentos. Você tem o dom de transformar qualquer situação com seu apoio incondicional.</p>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h3>Minha Alegria</h3>
+                                    <p>Sua risada é contagiante e seu senso de humor transforma qualquer situação. Com você, até os momentos mais comuns se tornam especiais. Você traz leveza e felicidade para minha vida de uma forma única.</p>
+                                </div>
+                                
+                                <div class="point-card">
+                                    <h3>Minha Família</h3>
+                                    <p>Você conquistou um lugar no meu coração que vai além da amizade. É como se fosse uma irmã que eu escolhi ter. Nossa conexão é tão profunda que sinto que você é parte da minha família.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-12 text-center">
+                                <p class="text-xl italic">
+                                    Obrigado por ser essa pessoa maravilhosa em minha vida. Que nosso vínculo continue crescendo e nos fortalecendo a cada ano que passa.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="section-divider" />
+
+                <!-- Seção 5: Poesia Especial -->
+                <section class="mb-20 fade-in">
+                    <div class="text-center mb-10">
+                        <h2 class="section-title title-font text-4xl text-pink-600">
+                            Palavras do Coração
+                        </h2>
+                        <p class="text-pink-600 max-w-2xl mx-auto mt-4">Um poema que escrevi especialmente para você (você provavelmente já leu mas eu gostaria de colocar ele aqui também KKKKKKKK)</p>
+                    </div>
+
+                    <div class="poetry-section">
+                        <i class="fas fa-quote-left poetry-decoration decoration-left"></i>
+                        <i class="fas fa-quote-right poetry-decoration decoration-right"></i>
+                        
+                        <div class="poetry-content">
+                            <span class="poetry-line">Eu me pergunto: como pode alguém</span>
+                            <span class="poetry-line">Ser tão incrível, e ainda assim,</span>
+                            <span class="poetry-line">Haver quem queira te ferir, quem te veja além</span>
+                            <span class="poetry-line">Da luz que emana, que não tem fim?</span>
+                            
+                            <span class="poetry-line">Vejo teu olhar, tão doce, tão fundo,</span>
+                            <span class="poetry-line">E não consigo de fato entender</span>
+                            <span class="poetry-line">Como há quem não veja no teu mundo</span>
+                            <span class="poetry-line">A beleza que em ti sabe florescer.</span>
+                            
+                            <span class="poetry-line">Teus gestos são música, um ritmo no ar,</span>
+                            <span class="poetry-line">Cada movimento, uma dança sutil.</span>
+                            <span class="poetry-line">E, mesmo assim, existem os que ao olhar</span>
+                            <span class="poetry-line">Não veem a canção que em ti reflete o abril.</span>
+                            
+                            <span class="poetry-line">Cabelos ao vento, como raios de sol,</span>
+                            <span class="poetry-line">A brisa te abraça, num sopro gentil.</span>
+                            <span class="poetry-line">Mas há quem não perceba o farol,</span>
+                            <span class="poetry-line">A força sutil que em ti é mais que mil.</span>
+                            
+                            <span class="poetry-line">Sinto que és um tesouro, raro e sem par,</span>
+                            <span class="poetry-line">Um fardo que poucos ousam carregar.</span>
+                            <span class="poetry-line">Como podem não ver, como podem ignorar</span>
+                            <span class="poetry-line">A essência tão pura que você sabe guardar?</span>
+                            
+                            <span class="poetry-line">O tempo nos molda, mas tu permaneces,</span>
+                            <span class="poetry-line">Firme em teu brilho, um dom que não cessa.</span>
+                            <span class="poetry-line">Mesmo quando as dores, a vida, as vezes,</span>
+                            <span class="poetry-line">Tentam apagar a luz que te confessa.</span>
+                            
+                            <span class="poetry-line">Você merece o mundo, um amor que seja inteiro,</span>
+                            <span class="poetry-line">Cada pedacinho de paz e valor.</span>
+                            <span class="poetry-line">Como é possível que ainda haja cativeiro</span>
+                            <span class="poetry-line">Onde deveria haver só luz, só esplendor?</span>
+                            
+                            <span class="poetry-line">Eu quero te proteger, te guardar num abraço,</span>
+                            <span class="poetry-line">Te lembrar do teu valor, do teu brilho real.</span>
+                            <span class="poetry-line">Pois você é incrível, um dom que preenche o espaço,</span>
+                            <span class="poetry-line">Uma força que o mundo precisa, especial.</span>
+                            
+                            <span class="poetry-line">E assim, sigo pensando, nesse mar de ideias:</span>
+                            <span class="poetry-line">Como pode alguém tão especial</span>
+                            <span class="poetry-line">Atrair o desprezo, as falsas plateias?</span>
+                            <span class="poetry-line">Mas eu sei: a verdade sempre brilha, no final.</span>
+                        </div>
+                        
+                        <div class="poetry-signature">
+                            <p>Com sincero apreço,</p>
+                            <p>Adam</p>
+                        </div>
+                    </div>
+                </section>
+
+                <hr class="section-divider" />
+
+
+        <hr class="section-divider" />
+
+        <!-- Seção 6: Playlist Musical (NOVA) -->
+        <section class="mb-20 fade-in">
+            <div class="text-center mb-10">
+                <h2 class="section-title title-font text-4xl text-pink-600">
+                    Nossa Trilha Sonora
+                </h2>
+                <p class="text-pink-600 max-w-2xl mx-auto mt-4">Músicas que marcaram nossa amizade e que eu sei que você ama</p>
+            </div>
+
+            <div class="music-player">
+                <audio ref="audioPlayer" controls class="w-full mb-6"></audio>
+                
+                <div class="playlist">
+                    <div v-for="(song, index) in playlist" 
+                         :key="index" 
+                         @click="playSong(index)"
+                         class="playlist-item" 
+                         :class="{ 'active': currentSongIndex === index }">
+                        <i class="fas fa-music"></i>
+                        <span>{{ song.title }}</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Seção 7: Vídeos Especiais (NOVA) -->
+        <section class="mb-20 fade-in">
+            <div class="text-center mb-10">
+                <h2 class="section-title title-font text-4xl text-pink-600">
+                    Vídeos Para Você
+                </h2>
+                <p class="text-pink-600 max-w-2xl mx-auto mt-4">Alguns vídeos que eu gostaria de dedicar a você</p>
+            </div>
+
+            <div class="swiper video-swiper max-w-md mx-auto rounded-2xl overflow-hidden" style="max-width: 400px; height: 700px;">
+                <div class="swiper-wrapper">
+                    <!-- Vídeo 1 -->
+                    <div class="swiper-slide bg-black">
+                        <video class="w-full h-full object-contain" controls>
+                            <source src="videos/video1.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
+                    
+                    <!-- Vídeo 2 -->
+                    <div class="swiper-slide bg-black">
+                        <video class="w-full h-full object-contain" controls>
+                            <source src="videos/video2.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
+                    
+                    <!-- Vídeo 3 -->
+                    <div class="swiper-slide bg-black">
+                        <video class="w-full h-full object-contain" controls>
+                            <source src="videos/video3.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos HTML5.
+                        </video>
+                    </div>
+                </div>
+                <!-- Paginação e botões de navegação -->
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Seção 8: Sonhos e Desejos (NOVA) -->
+        <section class="mb-20 fade-in">
+            <div class="text-center mb-10">
+                <h2 class="section-title title-font text-4xl text-pink-600">
+                    Sonhos e Desejos
+                </h2>
+                <p class="text-pink-600 max-w-2xl mx-auto mt-4">O que eu desejo para o seu futuro</p>
+            </div>
+
+            <div class="significance-section">
+                <div class="significance-content">
+                    <div class="text-center mb-8">
+                        <i class="fas fa-star text-5xl text-yellow-400 mb-4"></i>
+                        <p class="text-xl italic mb-6">Lohanna, você tem tanto potencial e tanta luz para compartilhar com o mundo. Aqui estão meus desejos para você:</p>
+                    </div>
+                    
+                    <div class="significance-points">
+                        <div class="point-card">
+                            <h3>Realização Profissional</h3>
+                            <p>Que você encontre uma carreira que não apenas pague suas contas, mas que também acenda seu coração todos os dias.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Amor Verdadeiro</h3>
+                            <p>Que encontre alguém que te veja como eu te vejo - essa pessoa incrível, cheia de luz e amor para dar.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Viagens Inesquecíveis</h3>
+                            <p>Que seus pés pisem em solo estrangeiro e que você colecione memórias por todos os continentes.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Autoconhecimento</h3>
+                            <p>Que você descubra cada vez mais a força que já existe dentro de você e a mulher maravilhosa que está se tornando.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <p class="text-xl italic">
+                            Saiba que estarei torcendo por você em cada passo dessa jornada, celebrando cada conquista como se fosse minha!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <hr class="section-divider" />
+
+        <!-- Seção 9: Mensagem pessoal (ATUALIZADA) -->
+        <section class="mb-20 fade-in">
+            <div class="text-center mb-10">
+                <h2 class="section-title title-font text-4xl text-pink-600">
+                    Minhas Palavras Para Você
+                </h2>
+            </div>
+
+            <div class="message-box soft-shadow">
+                <div class="text-center mb-8">
+                    <img
+                        src="img/1.jpeg"
+                        alt="Foto suas duas juntas"
+                        class="rounded-full w-32 h-32 object-cover mx-auto border-4 border-pink-200"
+                    />
+                </div>
+                <p class="text-xl leading-relaxed mb-5">
+                    Querida
+                    <span class="font-bold text-pink-600">Lohanna</span>,
+                </p>
+                <p class="text-xl leading-relaxed mb-5">
+                    No seu aniversário, quero que você saiba o quanto você é especial para mim. Você é aquela amiga que
+                    <span class="font-bold text-pink-600">sempre sabe a palavra certa</span>, que sempre
+                    <span class="font-bold text-pink-600">me apoia nos momentos difíceis</span>, e que tem um jeito único de
+                    <span class="font-bold text-pink-600">transformar dias cinzentos em dias ensolarados</span>.
+                </p>
+                <p class="text-xl leading-relaxed mb-5">
+                    Nesses anos de amizade, você me ensinou
+                    <span class="font-bold text-pink-600">a importância de ser autêntico</span> e mostrou o significado de
+                    <span class="font-bold text-pink-600">amizade verdadeira</span> e o quanto um simples gesto de amor e carinho pode mudar qualquer dia não importa como ou quando. Sua presença na minha vida é um presente que eu nunca vou dar por certo.
+                </p>
+                <p class="text-xl leading-relaxed">
+                    Que este novo ano da sua vida seja repleto de realizações, saúde, amor e muita alegria. Você merece tudo de melhor que o mundo pode oferecer!
+                </p>
+                <div class="message-signature">
+                    <p class="text-xl font-bold">
+                        Com todo meu carinho,<br />
+                        <span class="title-font text-pink-600 text-2xl">Adam</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+        <!-- Rodapé -->
+        <footer class="pink-bg py-12 text-white text-center relative">
+            <div class="footer-hearts">
+                <i class="fas fa-heart floating-heart" style="top: 10%; left: 5%; animation-delay: 0s"></i>
+                <i class="fas fa-heart floating-heart" style="top: 30%; left: 90%; animation-delay: 2s"></i>
+                <i class="fas fa-heart floating-heart" style="top: 70%; left: 15%; animation-delay: 4s"></i>
+                <i class="fas fa-heart floating-heart" style="top: 50%; left: 80%; animation-delay: 1s"></i>
+                <i class="fas fa-heart floating-heart" style="top: 20%; left: 40%; animation-delay: 3s"></i>
+            </div>
+
+            <div class="container mx-auto px-4 relative z-10">
+                <p class="title-font text-3xl mb-3">Feliz Aniversário!</p>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">
+                    Que seu dia seja repleto de amor, risadas e momentos inesquecíveis. Você merece o melhor!
+                </p>
+                <div class="mt-6">
+                    <button @click="launchConfetti" class="confetti-btn">
+                        <span class="animate-pulse">Lançar Confetes! 🎉</span>
+                    </button>
+                    <!-- COMENTE ESTE BOTÃO ABAIXO
+                    < BOTÃO NOVO PARA MOSTRAR A DECLARAÇÃO
+                    <button @click="showSpecialMessage" class="confetti-btn mt-4">
+                        <span>Ver Mensagem Especial ❤️</span>
+                    </button>
+                    -->
+                </div>
+                <div class="mt-12 pt-6 border-t border-white/20">
+                    <p>Feito com ❤️ especialmente para você</p>
+                </div>
+            </div>
+        </footer>
+        
+
+    <!-- NOVA SEÇÃO PARA A DECLARAÇÃO ESPECIAL (inicialmente oculta) -->
+    <section v-if="showDeclaration" class="py-16 light-pink-bg fade-in" id="special-message-section">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="section-title title-font text-4xl text-pink-600">
+                    Do Fundo do Meu Coração
+                </h2>
+                <p class="text-pink-600 max-w-2xl mx-auto mt-4">Uma mensagem especial só para você</p>
+            </div>
+
+            <div class="significance-section">
+                <div class="significance-content">
+                    <div class="significance-points">
+                        <div class="point-card">
+                            <h3>Minha Adoração por Você</h3>
+                            <p>Quero que saiba que cada batida do meu coração carrega seu nome. Você é a melodia que embala minha alma e a luz que ilumina meus dias mais sombrios. Meu corpo anseia pelo seu toque, minha alma busca a sua em cada respiro, e meu amor por você é infinito como o céu que nos cobre.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>O Seu Lugar no Meu Ser</h3>
+                            <p>Você habita cada partícula do meu ser de uma forma que desafia qualquer explicação. Quando fecho os olhos, é o seu rosto que vejo; quando penso em paz, é nos seus braços que imagino repousar. Você se tornou meu oxigênio, minha razão de sorrir, meu porto seguro nesse oceano turbulento que é a vida.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Promessa Eterna</h3>
+                            <p>Prometo amar você em cada versão que surgir - na alegria e na tristeza, na força e na vulnerabilidade. Amo a mulher guerreira que enfrenta o mundo, mas também a menina frágil que precisa de colo. Amo seus olhos que contêm universos, suas mãos que acalmam tempestades, e seu abraço que é meu lugar favorito no mundo.</p>
+                        </div>
+                        
+                        <div class="point-card">
+                            <h3>Meu Desejo Mais Profundo</h3>
+                            <p>Anseio pelo dia em que poderei demonstrar diariamente o que meu coração já grita em silêncio: que você é a personificação do amor que eu nem sabia ser possível existir. Que eu possa ser o abrigo que acolhe seus medos, o parceiro que celebra suas vitórias, e o amor que a acompanha em cada passo dessa jornada.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-6 bg-pink-50 rounded-xl border-2 border-pink-200 max-w-2xl mx-auto text-center">
+                        <p class="script-font text-2xl text-pink-600 leading-relaxed">
+                            "Se amar você fosse um trabalho, eu seria o funcionário mais dedicado. <br>
+                            Se fosse uma arte, eu seria o artista mais apaixonado. <br>
+                            Se fosse um oceano, eu nadaria até o fundo e ainda pediria por mais. <br>
+                            Você é simplesmente tudo o que eu nunca soube que precisava, <br>
+                            e tudo o que meu coração sempre desejou."
+                        </p>
+                    </div>
+                    
+                    <div class="mt-12 text-center">
+                        <p class="text-xl italic">
+                            Se meu corpo fala sua língua quando você se aproxima, se minha alma reconhece a sua antes mesmo de te ver, é porque você não é apenas parte de mim - você é o melhor de mim. Cada célula do meu ser te escolheu, te ama e te deseja em uma sintonia que transcende qualquer explicação racional.
+                        </p>
+                        <p class="text-xl italic mt-4">
+                            O que sinto por você não cabe em palavras, mas se tivesse que resumir: você é o amor que meu coração sempre buscou e minha alma sempre reconheceu como seu verdadeiro lar.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    
+    <script>
+        // Vue App Initialization
+        const { createApp } = Vue;
+
+        createApp({
+            data() {
+                return {
+                    showConfettiBtn: true,
+                    playlist: [
+                        { title: "Linda Louca e Mimada", src: "audio/musica1.mp3" },
+                        { title: "O Vagabundo e a Dama", src: "audio/musica2.mp3" },
+                        { title: "MTG Na Imaginação", src: "audio/musica3.mp3" }
+                        // REMOVA ESTA LINHA ↓
+                        // { title: "For You ❤️", src: "audio/musica4.mp3" }
+                    ],
+                    currentSongIndex: 0,
+                    showDeclaration: false
+                };
+            },
+            mounted() {
+                // Initialize GSAP animations
+                gsap.registerPlugin(ScrollTrigger);
+
+                // Animate sections on scroll
+                gsap.utils.toArray("section").forEach((section) => {
+                    gsap.from(section, {
+                        opacity: 0,
+                        y: 50,
+                        duration: 1,
+                        scrollTrigger: {
+                            trigger: section,
+                            start: "top 85%",
+                        },
+                    });
+                });
+
+                // Animate floating elements
+                gsap.utils.toArray(".floating-element").forEach((el) => {
+                    gsap.from(el, {
+                        opacity: 0,
+                        y: 30,
+                        duration: 0.8,
+                        scrollTrigger: {
+                            trigger: el,
+                            start: "top 90%",
+                        },
+                    });
+                });
+
+                // Initialize Swiper for images
+                const swiper = new Swiper('.swiper', {
+                    loop: true,
+                    autoplay: false,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    coverflowEffect: {
+                        rotate: 20,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                    },
+                });
+
+                // Play first song
+                this.playSong(0);
+                
+                // Initialize Swiper for videos (CORREÇÃO)
+                const videoSwiper = new Swiper('.video-swiper', {
+                    loop: true,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                    },
+                    autoplay: false,
+                    effect: 'slide',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    on: {
+                        // Pause video when leaving slide
+                        slideChange: function() {
+                            const activeSlide = this.slides[this.activeIndex];
+                            const videos = activeSlide.parentElement.querySelectorAll('video');
+                            
+                            videos.forEach(video => {
+                                if (video !== activeSlide.querySelector('video')) {
+                                    video.pause();
+                                }
+                            });
+                        }
+                    }
+                });
+            },
+            methods: { // CORREÇÃO: MOVER OS MÉTODOS PARA DENTRO DESTE BLOCO
+                launchConfetti() {
+                    // Configurações avançadas para o efeito de confetes
+                    const end = Date.now() + 3000; // 3 segundos de animação
+                    const colors = [
+                        '#ff7aa2', 
+                        '#ff4d8d', 
+                        '#ffb6c1', 
+                        '#ffffff', 
+                        '#ffecf1',
+                        '#ffc0cb',
+                        '#d14d82',
+                        '#ffd700'
+                    ];
+                    
+                    // Configuração base
+                    const baseConfig = {
+                        particleCount: 3,
+                        angle: 60,
+                        spread: 55,
+                        origin: { x: 0 },
+                        colors: colors,
+                        shapes: ['circle', 'square'],
+                        scalar: randomInRange(0.8, 1.2)
+                    };
+                    
+                    // Primeira parte: chuva de confetes
+                    confetti({
+                        ...baseConfig,
+                        particleCount: 300,
+                        spread: 100,
+                        startVelocity: 50,
+                        decay: 0.9,
+                        gravity: 0.8
+                    });
+                    
+                    // Segunda parte: explosões laterais
+                    (function frame() {
+                        const timeLeft = end - Date.now();
+                        
+                        if (timeLeft <= 0) return;
+                        
+                        // Explosão esquerda
+                        confetti({
+                            ...baseConfig,
+                            particleCount: 20,
+                            angle: 60,
+                            origin: { x: 0.1, y: 0.8 }
+                        });
+                        
+                        // Explosão direita
+                        confetti({
+                            ...baseConfig,
+                            particleCount: 20,
+                            angle: 120,
+                            origin: { x: 0.9, y: 0.8 }
+                        });
+                        
+                        // Continuar animação
+                        requestAnimationFrame(frame);
+                    }());
+                    
+                    // Efeito especial final
+                    setTimeout(() => {
+                        confetti({
+                            particleCount: 500,
+                            spread: 360,
+                            ticks: 200,
+                            gravity: 0,
+                            decay: 0.94,
+                            startVelocity: 30,
+                            shapes: ['circle', 'square', 'star'],
+                            colors: colors,
+                            scalar: randomInRange(0.8, 1.2)
+                        });
+                    }, 2500);
+
+                    // Disable button temporarily
+                    this.showConfettiBtn = false;
+                    setTimeout(() => {
+                        this.showConfettiBtn = true;
+                    }, 5000);
+                    
+                    // Função auxiliar
+                    function randomInRange(min, max) {
+                        return Math.random() * (max - min) + min;
+                    }
+                },
+                playSong(index) {
+                    this.currentSongIndex = index;
+                    const audioPlayer = this.$refs.audioPlayer;
+                    const song = this.playlist[index];
+                    
+                    // Atualizar fonte de áudio
+                    audioPlayer.src = song.src;
+                    
+                    // Reproduzir música
+                    audioPlayer.load();
+                    audioPlayer.play().catch(e => console.log("Autoplay bloqueado:", e));
+                },
+                showSpecialMessage() {
+                    this.showDeclaration = true;
+                    
+                    // Rolagem suave até a nova seção usando ID
+                    this.$nextTick(() => {
+                        const element = document.getElementById('special-message-section');
+                        if (element) {
+                            element.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                }
+            },
+        }).mount("#app");
+
+        // Intro animation
+        document.addEventListener("DOMContentLoaded", function () {
+            const intro = document.getElementById("intro");
+            const enterBtn = document.getElementById("enterBtn");
+            const introTitle = document.querySelector(".intro-title");
+            const introSubtitle = document.querySelector(".intro-subtitle");
+
+            // Animate intro elements
+            setTimeout(() => {
+                gsap.to(introTitle, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1.2,
+                    ease: "back.out(1.7)",
+                });
+            }, 500);
+
+            setTimeout(() => {
+                gsap.to(introSubtitle, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 1,
+                    ease: "power2.out",
+                });
+            }, 1000);
+
+            setTimeout(() => {
+                gsap.to(enterBtn, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.8,
+                    ease: "power2.out",
+                });
+            }, 1500);
+
+            // Enter button event
+            enterBtn.addEventListener("click", function () {
+                createHeartRain(100);
+                gsap.to(intro, {
+                    opacity: 0,
+                    duration: 5,
+                    ease: "power2.in",
+                    onComplete: function () {
+                        intro.style.display = "none";
+                    },
+                });
+            });
+        });
+        function createHeartRain(count = 50) {
+            const container = document.getElementById('intro');
+            const colors = ['#ff7aa2', '#ff4d8d', '#ffb6c1', '#ffffff', '#ffecf1', '#ffc0cb', '#d14d82', '#ffd700'];
+            
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('i');
+                heart.classList.add('fas', 'fa-heart');
+                heart.style.position = 'absolute';
+                heart.style.top = '-50px';
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.opacity = Math.random() * 0.5 + 0.5;
+                heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.fontSize = Math.random() * 20 + 10 + 'px';
+                heart.style.zIndex = '2001'; // acima do overlay
+                container.appendChild(heart);
+
+                // Animação com GSAP
+                gsap.to(heart, {
+                    y: container.clientHeight + 100,
+                    x: 'random(-100, 100)',
+                    rotation: 'random(-180, 180)',
+                    duration: Math.random() * 5 + 5,
+                    ease: 'power1.in',
+                    onComplete: function() {
+                        heart.remove();
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+</html>
